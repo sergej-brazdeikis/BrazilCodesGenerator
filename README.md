@@ -1,5 +1,6 @@
+![Brazil Code Generator](https://github.com/sjevs/BrazilCodesGenerator/raw/master/SergejJevsejevBrazilCodeGenerator.png)
 
-=== Brazil Code Generator
+### Brazil Code Generator
 
 Google Chrome extension which:
 
