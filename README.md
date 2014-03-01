@@ -4,8 +4,9 @@
 
 Google Chrome extension which:
 
-    * Generates CEP code
-    * Generates CPF code
+    * Generates CEP codes
+    * Generates CPF codes
+    * Generates CNPJ codes
     * Copies generated code to buffer
 
 [Download](https://github.com/sjevs/BrazilCodesGenerator/raw/master/bin/SergejJevsejevBrazilCodesGenerator.crx)

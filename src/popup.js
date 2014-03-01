@@ -30,31 +30,64 @@ var sergejJevsejevBrazilCodeGenerator = {
   },
 
   generateCPF: function (withDots) {
+    var n = [], d1 = 0, d2;
+
     withDots = withDots || true;
 
-    var n = [];
     for (i = 1; i <= 9; i++) {
       n[i] = this.randomize(9);
     }
 
-    d1 = 0;
     for (i = 1; i <= 9; i++) {
       d1 += n[10 - i] * (i + 1);
     }
     d1 = 11 - (d1 % 11);
     if (d1 >= 10) d1 = 0;
 
-    var d2 = d1 * 2;
+    d2 = d1 * 2;
     for (i = 3; i <= 11; i++) {
       d2 += n[12 - i] * i;
     }
     d2 = 11 - (d2 % 11);
     if (d2 >= 10) d2 = 0;
 
-    if (withDots) cpf = '' + n[1] + n[2] + n[3] + '.' + n[4] + n[5] + n[6] + '.' + n[7] + n[8] + n[9] + '-' + d1 + d2;
-    else cpf = '' + n[1] + n[2] + n[3] + n[4] + n[5] + n[6] + n[7] + n[8] + n[9] + d1 + d2;
+    if (withDots) return '' + n[1] + n[2] + n[3] + '.' + n[4] + n[5] + n[6] + '.' + n[7] + n[8] + n[9] + '-' + d1 + d2;
+    else return '' + n[1] + n[2] + n[3] + n[4] + n[5] + n[6] + n[7] + n[8] + n[9] + d1 + d2;
+  },
 
-    return cpf;
+  generateCNPJ: function (withMask) {
+    withMask = withMask || true;
+    var n = [], i, d1, d2;
+
+    for (i = 1; i <= 12; i++) {
+      n[i] = this.randomize(9);
+    }
+
+    d1 = 0;
+    for(i = 1; i<=8; i++){
+      d1 += n[13 - i] * (i + 1);
+    }
+    for(i = 9; i<=12; i++){
+      d1 += n[13 - i] * (i - 7);
+    }
+    d1 = 11 - (d1 % 11);
+    if (d1 >= 10) d1 = 0;
+
+    d2 = d1 * 2;
+    for(i = 3; i<=9; i++){
+      d2 += n[15 - i] * i;
+    }
+    for(i = 2; i<=6; i++){
+      d2 += n[7 - i] * i;
+    }
+    d2 = 11 - (d2 % 11);
+    if (d2 >= 10) d2 = 0;
+
+    if (withMask) {
+      return '' + n[1] + n[2] + '.' + n[3] + n[4] + n[5] + '.' + n[6] + n[7] + n[8] + '/' + n[9] + n[10] + n[11] + n[12] + '-' + d1 + d2;
+    } else {
+      return '' + n[1] + n[2] + n[3] + n[4] + n[5] + n[6] + n[7] + n[8] + n[9] + n[10] + n[11] + n[12] + d1 + d2;
+    }
   }
 };
 
@@ -76,9 +109,11 @@ $().ready(function () {
 
   var cepValue = $("#cepValue");
   var cpfValue = $("#cpfValue");
+  var cnpjValue = $("#cnpjValue");
 
   cepValue.val(sergejJevsejevBrazilCodeGenerator.generateCEP());
   cpfValue.val(sergejJevsejevBrazilCodeGenerator.generateCPF());
+  cnpjValue.val(sergejJevsejevBrazilCodeGenerator.generateCNPJ());
 
   cepValue.click(function () {
     sergejJevsejevCodeGeneratorFormModel.copyInputValue(this)
@@ -90,11 +125,20 @@ $().ready(function () {
       .setStatus('Copied CPF!');
   });
 
+  cnpjValue.click(function () {
+    sergejJevsejevCodeGeneratorFormModel.copyInputValue(this)
+      .setStatus('Copied CNPJ!');
+  });
+
   $("#cep").click(function () {
     cepValue.val(sergejJevsejevBrazilCodeGenerator.generateCEP());
   });
 
   $("#cpf").click(function () {
     cpfValue.val(sergejJevsejevBrazilCodeGenerator.generateCPF());
+  });
+
+  $("#cnpj").click(function () {
+    cnpjValue.val(sergejJevsejevBrazilCodeGenerator.generateCNPJ());
   });
 });
