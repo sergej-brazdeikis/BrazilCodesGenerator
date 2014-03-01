@@ -1,6 +1,6 @@
 {
   "name": "Brazil codes generator by Sergej Jevsejev",
-  "description": "Generates valid CEP and CPF codes in browser",
+  "description": "CEP,CPF,CNPJ generator",
   "icons": { "16": "icon_016.png",
            "48": "icon_048.png",
           "128": "icon_128.png" },
