@@ -1,31 +1,37 @@
 body {
-    height: 90px;
+  height: 90px;
 }
+
 ul {
-    width: 220px;
-    height: 75px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  width: 220px;
+  height: 75px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
+
 li {
-    margin: 0 20px;
-    cursor: pointer;
+  margin: 0 20px;
+  cursor: pointer;
 }
+
 li button {
-    float: left;
-    cursor: pointer;
+  float: left;
+  width: 42px;
+  cursor: pointer;
 }
+
 li input {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 #status {
-    display: none;
-    margin: auto;
-    width: 100px;
-    height: 18px;
-    border-radius: 5px;
-    padding: 0 15px;
-    background-color: #e9ffd9;
-    border: 1px solid #a6ca8a;
+  display: none;
+  margin: auto;
+  width: 100px;
+  height: 18px;
+  border-radius: 5px;
+  padding: 0 15px;
+  background-color: #e9ffd9;
+  border: 1px solid #a6ca8a;
 }

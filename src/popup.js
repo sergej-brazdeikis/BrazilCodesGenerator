@@ -64,20 +64,20 @@ var sergejJevsejevBrazilCodeGenerator = {
     }
 
     d1 = 0;
-    for(i = 1; i<=8; i++){
+    for (i = 1; i <= 8; i++) {
       d1 += n[13 - i] * (i + 1);
     }
-    for(i = 9; i<=12; i++){
+    for (i = 9; i <= 12; i++) {
       d1 += n[13 - i] * (i - 7);
     }
     d1 = 11 - (d1 % 11);
     if (d1 >= 10) d1 = 0;
 
     d2 = d1 * 2;
-    for(i = 3; i<=9; i++){
+    for (i = 3; i <= 9; i++) {
       d2 += n[15 - i] * i;
     }
-    for(i = 2; i<=6; i++){
+    for (i = 2; i <= 6; i++) {
       d2 += n[7 - i] * i;
     }
     d2 = 11 - (d2 % 11);
